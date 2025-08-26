@@ -144,6 +144,12 @@ app_license = "mit"
 # 		"on_trash": "method"
 # 	}
 # }
+doc_events = {
+    "Airplane Ticket": {
+        "before_submit": "airplane_mode.airplane.doctype.airplane_ticket.airplane_ticket.stop_submit_if_not_boarded"
+    }
+}
+
 
 # Scheduled Tasks
 # ---------------
