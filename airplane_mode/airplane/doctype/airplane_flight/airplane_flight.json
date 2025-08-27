@@ -2,7 +2,7 @@
  "actions": [],
  "allow_guest_to_view": 1,
  "allow_rename": 1,
- "autoname": "prompt",
+ "autoname": "format:{airplane}-{MM}-{YYYY}-{#####}",
  "creation": "2025-08-23 13:32:12.368461",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -14,7 +14,6 @@
   "status",
   "is_published",
   "route",
-  "is_publi",
   "airport_details_section",
   "source_airport",
   "source_airport_code",
@@ -138,29 +137,24 @@
    "fieldname": "route",
    "fieldtype": "Data",
    "label": "Route"
-  },
-  {
-   "default": "0",
-   "fieldname": "is_publi",
-   "fieldtype": "Check",
-   "label": "Is_publi"
   }
  ],
  "grid_page_length": 50,
  "has_web_view": 1,
  "index_web_pages_for_search": 1,
- "is_published_field": "is_publi",
+ "is_published_field": "is_published",
+ "is_submittable": 1,
  "links": [
   {
    "link_doctype": "Airplane Ticket",
    "link_fieldname": "flight"
   }
  ],
- "modified": "2025-08-27 12:08:39.442695",
+ "modified": "2025-08-27 16:11:02.841870",
  "modified_by": "Administrator",
  "module": "airplane",
  "name": "Airplane Flight",
- "naming_rule": "Set by user",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {
