@@ -1,4 +1,19 @@
-<div>
-	<a href="{{ doc.route }}">{{ doc.title or doc.name }}</a>
+<div class="card">
+  <div class="card-body">
+    <div class="fw-semibold mb-1">
+      {{ doc.airplane }}
+    </div>
+
+    <div class="text-muted small mb-1">
+      {{ doc.source_airport_code }} → {{ doc.destination_airport_code }}
+    </div>
+
+    <div class="text-muted small mb-2">
+      {{ doc.date_of_departure.strftime("%d %B, %Y") }} |
+      {{ frappe.format(doc.time_of_departure, {"fieldtype":"Time"}) }} |
+      {{ frappe.format(doc.duration, {"fieldtype":"Duration"}) }}
+    </div>
+
+	<a href="{{ doc.route }}">View Flight</a>
+  </div>
 </div>
-<!-- this is a sample default list template -->
