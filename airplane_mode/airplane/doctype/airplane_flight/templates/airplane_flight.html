@@ -2,11 +2,18 @@
 
 {% block page_content %}
 <h1>{{ title }}</h1>
-{% endblock %}
 
-<!-- this is a sample default web page template -->
-
+<h3>Flight Details</h3>
+<ul>
+  <li>Airline: {{ doc.airplane.split('-')[0] }}</li>
+  <li>{{ doc.source_airport_code }} → {{ doc.destination_airport_code }}</li>
+  <li>{{ doc.date_of_departure }} | {{ frappe.format(doc.time_of_departure, {"fieldtype":"Time"}) }}</li>
+  <li>Duration: {{ frappe.format(doc.duration, {"fieldtype":"Duration"}) }}</li>
+</ul>
 <a class="btn btn-primary"
-   href="/flight-booking-web-form?flight={{ doc.name }}&price={{ doc.ticket_price }}">
+   href="/flight-booking-web-form?flight={{ doc.title }}&price={{ doc.flight_price }}">
   Book Ticket
 </a>
+{% endblock %}
+
+
