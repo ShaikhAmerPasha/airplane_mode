@@ -11,9 +11,10 @@
   <li>Duration: {{ frappe.format(doc.duration, {"fieldtype":"Duration"}) }}</li>
 </ul>
 <a class="btn btn-primary"
-   href="/flight-booking-web-form?flight={{ doc.title }}&price={{ doc.flight_price }}">
+   href="/flight-booking-web-form/new?flight={{ doc.name | urlencode }}">
   Book Ticket
 </a>
+
 {% endblock %}
 
 

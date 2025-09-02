@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Show Me Colors</title>
+  <style>
+    body {
+      height: 100vh;
+      margin: 0;
+      background: #f9f9f9;
+    }
+    #colorBox {
+      width: 600px; 
+      height: 300px;  
+      background-color: black; 
+      border: 2px solid #333;
+    }
+  </style>
+</head>
+<body>
+  <div id="colorBox"></div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const color = params.get("color") || "black";
+    document.getElementById("colorBox").style.backgroundColor = color;
+  </script>
+</body>
+</html>
