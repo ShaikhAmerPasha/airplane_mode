@@ -50,7 +50,7 @@
    "link_fieldname": "passenger"
   }
  ],
- "modified": "2025-08-23 12:32:24.074161",
+ "modified": "2025-09-02 16:13:26.655908",
  "modified_by": "Administrator",
  "module": "airplane",
  "name": "Flight Passenger",
@@ -66,6 +66,19 @@
    "read": 1,
    "report": 1,
    "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "if_owner": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Travel Agent",
    "share": 1,
    "write": 1
   }

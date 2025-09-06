@@ -7,4 +7,5 @@ from frappe.model.document import Document
 
 class FlightPassenger(Document):
 	def before_save(self):
-		self.full_name = f"{self.first_name} {self.last_name}"
+		parts = [self.first_name, self.last_name]
+		self.full_name = " ".join(p for p in parts if p).strip()

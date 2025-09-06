@@ -10,11 +10,13 @@
   "passenger",
   "status",
   "source_airport_code",
+  "gate_number",
   "column_break_uahv",
   "flight",
   "seat",
   "destination_airport_code",
   "amended_from",
+  "airline",
   "section_break_xnjb",
   "add_ons",
   "section_break_hmmm",
@@ -25,7 +27,9 @@
   "departure_date",
   "departure_time",
   "column_break_xyxv",
-  "duration_of_flight"
+  "duration_of_flight",
+  "section_break_qisv",
+  "crew_members"
  ],
  "fields": [
   {
@@ -152,13 +156,36 @@
   {
    "fieldname": "column_break_tpuh",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "airline",
+   "fieldtype": "Link",
+   "label": "Airline",
+   "options": "Airline"
+  },
+  {
+   "fieldname": "section_break_qisv",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "crew_members",
+   "fieldtype": "Table",
+   "label": "Crew Members",
+   "options": "Crew Member"
+  },
+  {
+   "default": "A1",
+   "fieldname": "gate_number",
+   "fieldtype": "Data",
+   "label": "Gate Number",
+   "options": "A1\nA2\nB1\nB2"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-08-23 17:01:12.998328",
+ "modified": "2025-09-05 11:14:00.865562",
  "modified_by": "Administrator",
  "module": "airplane",
  "name": "Airplane Ticket",
@@ -176,6 +203,28 @@
    "role": "System Manager",
    "share": 1,
    "submit": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Airport Authority Personnel",
+   "share": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "if_owner": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Travel Agent",
+   "share": 1,
    "write": 1
   }
  ],

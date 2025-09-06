@@ -8,7 +8,9 @@
  "field_order": [
   "founding_year",
   "customer_care_number",
-  "headquarters"
+  "column_break_xole",
+  "headquarters",
+  "website"
  ],
  "fields": [
   {
@@ -30,6 +32,15 @@
    "in_list_view": 1,
    "label": "Headquarters",
    "reqd": 1
+  },
+  {
+   "fieldname": "website",
+   "fieldtype": "Data",
+   "label": "Website"
+  },
+  {
+   "fieldname": "column_break_xole",
+   "fieldtype": "Column Break"
   }
  ],
  "grid_page_length": 50,
@@ -40,7 +51,7 @@
    "link_fieldname": "airline"
   }
  ],
- "modified": "2025-08-22 10:27:47.693157",
+ "modified": "2025-09-02 16:08:54.032965",
  "modified_by": "Administrator",
  "module": "airplane",
  "name": "Airline",
@@ -58,6 +69,45 @@
    "role": "System Manager",
    "share": 1,
    "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Airport Authority Personnel",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Fleet Manager",
+   "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Travel Agent",
+   "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Flight Crew Member",
+   "share": 1
   }
  ],
  "row_format": "Dynamic",

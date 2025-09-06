@@ -1,20 +1,33 @@
 {% extends "templates/web.html" %}
 
 {% block page_content %}
-<h1>{{ title }}</h1>
+<h1>{{ doc.title or ("Flight " ~ doc.name) }}</h1>
 
 <h3>Flight Details</h3>
 <ul>
-  <li>Airline: {{ doc.airplane.split('-')[0] }}</li>
-  <li>{{ doc.source_airport_code }} → {{ doc.destination_airport_code }}</li>
-  <li>{{ doc.date_of_departure }} | {{ frappe.format(doc.time_of_departure, {"fieldtype":"Time"}) }}</li>
-  <li>Duration: {{ frappe.format(doc.duration, {"fieldtype":"Duration"}) }}</li>
+  <li>
+    Airline:
+    {{ (doc.airplane.split('-')[0] if doc.airplane else "Unknown") }}
+  </li>
+  <li>
+    {{ doc.source_airport_code or "???" }}
+    → {{ doc.destination_airport_code or "???" }}
+  </li>
+  <li>
+    {{ doc.date_of_departure or "" }}
+    {% if doc.time_of_departure %}
+      | {{ frappe.format(doc.time_of_departure, {"fieldtype": "Time"}) }}
+    {% endif %}
+  </li>
+  <li>
+    {% if doc.duration %}
+      Duration: {{ frappe.format(doc.duration, {"fieldtype": "Duration"}) }}
+    {% endif %}
+  </li>
 </ul>
+
 <a class="btn btn-primary"
    href="/flight-booking-web-form/new?flight={{ doc.name | urlencode }}">
   Book Ticket
 </a>
-
 {% endblock %}
-
-

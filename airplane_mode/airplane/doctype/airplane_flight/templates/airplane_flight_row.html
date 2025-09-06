@@ -1,19 +1,29 @@
 <div class="card">
   <div class="card-body">
     <div class="fw-semibold mb-1">
-      {{ doc.airplane }}
+      {{ doc.airplane or (doc.title or ("Flight " ~ doc.name)) }}
     </div>
 
     <div class="text-muted small mb-1">
-      {{ doc.source_airport_code }} → {{ doc.destination_airport_code }}
+      {{ doc.source_airport_code or "???" }} → {{ doc.destination_airport_code or "???" }}
     </div>
 
     <div class="text-muted small mb-2">
-      {{ doc.date_of_departure.strftime("%d %B, %Y") }} |
-      {{ frappe.format(doc.time_of_departure, {"fieldtype":"Time"}) }} |
-      {{ frappe.format(doc.duration, {"fieldtype":"Duration"}) }}
+      {% if doc.date_of_departure %}
+        {{ frappe.format(doc.date_of_departure, {"fieldtype": "Date"}) }}
+      {% endif %}
+      {% if doc.time_of_departure %}
+        {% if doc.date_of_departure %} | {% endif %}
+        {{ frappe.format(doc.time_of_departure, {"fieldtype": "Time"}) }}
+      {% endif %}
+      {% if doc.duration %}
+        {% if doc.date_of_departure or doc.time_of_departure %} | {% endif %}
+        {{ frappe.format(doc.duration, {"fieldtype": "Duration"}) }}
+      {% endif %}
     </div>
 
-	<a href="/{{ doc.route }}">View Flight</a>
+    {# Route: prefer doc.route if present, fallback to /{doctype-route}/{name} #}
+    {% set href = ("/" ~ (doc.route if doc.route else ("airplane-flight/" ~ doc.name))) %}
+    <a href="{{ href | urlencode }}">View Flight</a>
   </div>
 </div>
